@@ -1,8 +1,16 @@
 📸 Cloud-Based Media Sharing Platform
 
-A Cloud-Based Media Sharing Platform built using Python and FastAPI, enabling users to securely register, authenticate, and upload images with structured data storage. The project follows a clean, modular backend architecture, making it scalable, maintainable, and production-ready.
+A Cloud-Based Media Sharing Platform built using Python, FastAPI, and Streamlit, enabling users to securely register, authenticate, and upload images through an interactive frontend with a scalable backend architecture.
 
-This project demonstrates strong fundamentals in backend development, REST APIs, authentication, database design, and schema validation.
+The application is containerized using Docker and deployed on AWS, making it production-ready and suitable for real-world use cases.
+
+🌐 Live Demo
+
+🔗 Streamlit Frontend:
+http://43.205.137.152:8501/
+
+🔗 API Documentation (Swagger):
+http://43.205.137.152:8000/docs
 
 🚀 Features
 
@@ -10,38 +18,45 @@ This project demonstrates strong fundamentals in backend development, REST APIs,
 
 🖼 Secure image upload and management
 
+🎨 Interactive Streamlit frontend
+
 ⚡ High-performance REST APIs using FastAPI
+
+🐳 Dockerized backend for consistent deployment
+
+☁️ Deployed on AWS (EC2)
 
 🗄 Database integration for users and media metadata
 
-✅ Request & response validation using Pydantic schemas
-
-🧩 Modular code structure for scalability
-
-🔒 Environment variable safety using .gitignore
+✅ Request & response validation using Pydantic
 
 📑 Auto-generated API documentation (Swagger UI)
+
+🔒 Environment variable security using .env and .gitignore
 
 🛠 Tech Stack
 Category	Technology
 Backend	Python, FastAPI
-Database	SQL Database (via SQLAlchemy)
+Frontend	Streamlit
+Database	SQL Database (SQLAlchemy)
+Containerization	Docker
+Cloud	AWS EC2
 Validation	Pydantic
 API Docs	Swagger UI / OpenAPI
-Frontend	Python-based frontend integration
 Version Control	Git & GitHub
 📂 Project Structure
 .
-├── main.py        # Application entry point
+├── main.py        # FastAPI application entry point
 ├── app.py         # FastAPI app initialization
 ├── db.py          # Database connection & setup
-├── users.py       # User authentication & routes
+├── users.py       # User authentication routes
 ├── images.py      # Image upload & media handling
 ├── schemas.py     # Pydantic data schemas
-├── frontend.py    # Frontend integration logic
+├── frontend.py    # Streamlit frontend logic
+├── Dockerfile     # Docker configuration
 ├── .gitignore     # Environment & sensitive file protection
 
-⚙️ Installation & Setup
+⚙️ Installation & Setup (Local)
 1️⃣ Clone the Repository
 git clone https://github.com/your-username/your-repo-name.git
 cd your-repo-name
@@ -54,16 +69,32 @@ venv\Scripts\activate      # Windows
 3️⃣ Install Dependencies
 pip install -r requirements.txt
 
-4️⃣ Run the Application
+4️⃣ Run Backend
 uvicorn main:app --reload
 
-5️⃣ Open API Docs
+5️⃣ Run Streamlit Frontend
+streamlit run frontend.py
 
-Swagger UI:
-👉 http://127.0.0.1:8000/docs
+🐳 Docker Setup
+Build Docker Image
+docker build -t media-sharing-app .
 
-ReDoc:
-👉 http://127.0.0.1:8000/redoc
+Run Docker Container
+docker run -d -p 8000:8000 media-sharing-app
+
+☁️ AWS Deployment Flow
+
+Containerized FastAPI application using Docker
+
+Launched AWS EC2 instance
+
+Installed Docker on EC2
+
+Deployed Docker container
+
+Configured security groups for ports 8000 (API) and 8501 (Streamlit)
+
+Accessed application via public IP
 
 🔌 API Endpoints Overview
 👤 User APIs
@@ -78,33 +109,31 @@ POST /upload-image – Upload image
 
 GET /images – Retrieve uploaded images
 
-(Exact endpoints may vary based on implementation)
-
 🎯 Use Cases
 
-Backend for a media sharing application
+Cloud-based media sharing application
 
-Base template for cloud storage platforms
+Backend + frontend demo for FastAPI & Streamlit
 
-Learning project for FastAPI & REST APIs
+Learning project for REST APIs & Docker
 
-Backend service for full-stack applications
+AWS-deployed full-stack Python project
 
-Portfolio project for Python / Backend roles
+Portfolio project for Backend / ML / Data roles
 
 🧠 What This Project Demonstrates
 
-Clean backend architecture
+End-to-end system deployment (local → Docker → AWS)
 
-RESTful API design
+Backend API development with FastAPI
 
-Authentication flow understanding
+Frontend integration using Streamlit
 
-Database modeling
+Authentication and database design
 
-API validation & error handling
+Clean, scalable code architecture
 
-Scalable code organization
+Real-world cloud deployment experience
 
 📌 Future Enhancements
 
@@ -113,103 +142,6 @@ JWT-based authentication
 Role-based access control
 
 Image compression & optimization
-
-Cloud storage integration (AWS S3 / GCP)
-
-📸 Cloud-Based Media Sharing Platform
-
-🚀 Deployed on AWS using Docker
-
-A Cloud-Based Media Sharing Platform built with Python and FastAPI, containerized using Docker and deployed on AWS. The application enables secure user authentication and image uploads with scalable backend architecture suitable for real-world deployment.
-
-🌐 Live Deployment
-
-Cloud Platform: AWS
-
-Containerization: Docker
-
-Deployment Type: Production-ready containerized backend
-
-(You can add your public IP / domain here if available)
-
-🚀 Features
-
-🔐 Secure user authentication system
-
-🖼 Image upload & management APIs
-
-⚡ High-performance FastAPI backend
-
-🐳 Dockerized application for consistent deployment
-
-☁️ Cloud deployment on AWS
-
-🗄 Persistent database integration
-
-📑 Auto-generated API documentation (Swagger UI)
-
-🔒 Environment variable security using .env and .gitignore
-
-🛠 Tech Stack
-Category	Technology
-Backend	Python, FastAPI
-Database	SQL Database (SQLAlchemy)
-Containerization	Docker
-Cloud	AWS (EC2 / ECS)
-Validation	Pydantic
-API Docs	Swagger UI (OpenAPI)
-Version Control	Git & GitHub
-🐳 Docker Setup
-Build Docker Image
-docker build -t media-sharing-app .
-
-Run Docker Container
-docker run -d -p 8000:8000 media-sharing-app
-
-☁️ AWS Deployment Flow
-
-Created Docker image for FastAPI application
-
-Launched AWS EC2 instance
-
-Installed Docker on EC2
-
-Pulled project code / Docker image
-
-Exposed application via security groups
-
-Deployed and accessed using public IP
-
-📂 Project Structure
-.
-├── main.py        # Application entry point
-├── app.py         # FastAPI app initialization
-├── db.py          # Database setup
-├── users.py       # User authentication routes
-├── images.py      # Image upload logic
-├── schemas.py     # Pydantic schemas
-├── frontend.py    # Frontend integration
-├── Dockerfile     # Docker configuration
-├── .gitignore     # Sensitive file protection
-
-🔌 API Access
-
-Swagger UI:
-👉 http://<AWS_PUBLIC_IP>:8000/docs
-
-🎯 Why This Project Stands Out
-
-Demonstrates end-to-end deployment (code → Docker → AWS)
-
-Shows real-world backend engineering skills
-
-Uses industry-standard tools (FastAPI, Docker, AWS)
-
-Production-ready architecture
-
-📌 Future Enhancements
-
-JWT authentication
 
 AWS S3 for image storage
 
@@ -221,6 +153,12 @@ HTTPS with SSL
 
 Monitoring & logging
 
-Frontend UI using React / Next.js
+⭐ Why This Project Stands Out
 
-Docker containerization
+Combines FastAPI + Streamlit + Docker + AWS
+
+Fully deployed and publicly accessible
+
+Production-ready backend architecture
+
+Strong portfolio project for recruiters
